@@ -3,7 +3,7 @@
 # Tiffany Sobczak
 
 ## Purpose
-To test you knowledge on HTML, CSS, and JS while being timed
+To test your knowledge on HTML, CSS, and JS while being timed
 
 ## Built With
 * HTML
@@ -12,4 +12,4 @@ To test you knowledge on HTML, CSS, and JS while being timed
 
 ## Website
 
-## SCreenshot
+## Screenshot
