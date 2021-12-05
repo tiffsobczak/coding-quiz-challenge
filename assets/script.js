@@ -15,10 +15,12 @@ function submitAnswer(questionNum, selectedAnswer) {
   const correctAnswer = answers[questionNum - 1]
 
   if (selectedAnswer === correctAnswer) {
-    // ...
-    console.log('correct');
+    showByElementId('correct');
+    hideByElementId('wrong');
   } else {
     timeLeft = timeLeft - 10;
+    showByElementId('wrong');
+    hideByElementId('correct');
   }
 
   if (questionNum > 4) {
