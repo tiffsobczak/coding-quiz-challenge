@@ -10,7 +10,7 @@ function startQuiz() {
 }
 
 function submitAnswer(questionNum, selectedAnswer) {
-  const answers = ['abc', 'def', '...', '...']
+  const answers = ['alerts', 'parenthesis', 'quotes', 'all of the above', 'console.log']
   const correctAnswer = answers[questionNum - 1]
 
   if (selectedAnswer === correctAnswer) {
