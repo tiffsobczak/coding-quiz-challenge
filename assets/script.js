@@ -1,10 +1,13 @@
 var currentQuestionNum;
+var isFinished = false;
+var timeLeft = 75;
 
 function startQuiz() {
   countdown();
   showByElementId('question-1');
   hideByElementId('start');
   currentQuestionNum = 1;
+  isFinished = false;
 }
 
 function submitAnswer(questionNum, selectedAnswer) {
@@ -15,24 +18,23 @@ function submitAnswer(questionNum, selectedAnswer) {
     // ...
     console.log('correct');
   } else {
-    // ...
-    console.log('wrong');
+    timeLeft = timeLeft - 10;
   }
 
   if (questionNum > 4) {
-    showByElementId('results');
-    hideByElementId('question-' + questionNum);
+    finish();
   } else {
-    showNextQuestion(questionNum);
+    showNextQuestion();
   }
 }
 
-function showNextQuestion(currentQuestionNum) {
+function showNextQuestion() {
+  hideByElementId('question-' + currentQuestionNum);
+
   const nextQuestionNum = currentQuestionNum + 1;
   currentQuestionNum = nextQuestionNum;
 
   showByElementId('question-' + nextQuestionNum);
-  hideByElementId('question-' + currentQuestionNum);
 }
 
 function showByElementId(id) {
@@ -50,20 +52,29 @@ function countdown() {
   showByElementId('timer');
   const secondsLeftElement = document.getElementById('seconds-left');
 
-  var timeLeft = 5;
+  const interval = setInterval(function tick() {
+    if (timeLeft < 1 || isFinished === true) {
+      clearInterval(interval);
+    } else {
+      // Decrement `timeLeft` by 1
+      timeLeft--;
+        
+      // Set the `innerText` of `timerEl` to show the remaining seconds
+      secondsLeftElement.innerText = timeLeft;
 
-  setInterval(function tick() {
-    // Decrement `timeLeft` by 1
-    timeLeft--;
-
-    // Set the `textContent` of `timerEl` to show the remaining seconds
-    secondsLeftElement.innerText = timeLeft;
-
-    // If timeLeft is less than 1
-    if (timeLeft < 1) {
-      hideByElementId('question-' + currentQuestionNum);
-      showByElementId('results');
+      // If timeLeft is less than 1
+      if (timeLeft < 1) {
+        finish();
+      }
     }
   }, 1000);
 }
 
+function finish() {
+  showByElementId('results');
+  hideByElementId('question-' + currentQuestionNum);
+  isFinished = true;
+
+  const scoreElement = document.getElementById('score');
+  scoreElement.innerText = timeLeft;
+}
