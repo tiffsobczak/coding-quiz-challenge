@@ -125,7 +125,7 @@ function showHighscores() {
   listElement.innerHTML = '';
 
   for (const score of scores) {
-    listElement.innerHTML = listElement.innerHTML + '<div>' + score + '</div>';
+    listElement.innerHTML = listElement.innerHTML + '<div class="record">' + score + '</div>';
   }
 }
 

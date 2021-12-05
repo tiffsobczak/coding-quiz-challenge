@@ -18,74 +18,110 @@
       </div>
     </header>
     <div class="center-container">
+      
       <!--Start Button-->
-      <div id="start" class="start-btn btn">
-        <button onclick="startQuiz()">Start Quiz</button>
-      </div>
-
-      <div id="question-1" class="question-container hide">
-        <h1>Commonly used data types DO NOT include: </h1>
-        <button class="btn" onclick="submitAnswer(1, 'strings')">strings</button>
-        <button class="btn" onclick="submitAnswer(1, 'booleans')">booleans</button>
-        <button class="btn" onclick="submitAnswer(1, 'alerts')">alerts</button>
-        <button class="btn" onclick="submitAnswer(1, 'numbers')">numbers </button>
-      </div>
-
-      <div id="question-2" class="question-container hide">
-        <h1>The condition in an if/else statement is encolsed with</h1>
-        <button class="btn" onclick="submitAnswer(2, 'quotes')">quotes</button>
-        <button class="btn" onclick="submitAnswer(2, 'curly brackets')">curly brackets</button>
-        <button class="btn" onclick="submitAnswer(2, 'parenthesis')">parenthesis</button>
-        <button class="btn" onclick="submitAnswer(2, 'square brackets')">square brackets</button>
-      </div>
-
-      <div id="question-3" class="question-container hide">
-        <h1>String values must be enclosed within _______ when they are being assigned to variables.</h1>
-        <button class="btn" onclick="submitAnswer(3, 'commmas')">commmas</button>
-        <button class="btn" onclick="submitAnswer(3, 'curly brackets')">curly brackets</button>
-        <button class="btn" onclick="submitAnswer(3, 'quotes')">quotes</button>
-        <button class="btn" onclick="submitAnswer(3, 'parenthesis')">parenthesis</button>
-      </div>
-
-      <div id="question-4" class="question-container hide">
-        <h1>Array in JavaScript can be used store _______.</h1>
-        <button class="btn" onclick="submitAnswer(4, 'numbers and strings')">numbers and strings</button>
-        <button class="btn" onclick="submitAnswer(4, 'other arrays')">other arrays</button>
-        <button class="btn" onclick="submitAnswer(4, 'booleans')">booleans</button>
-        <button class="btn" onclick="submitAnswer(4, 'all of the above')">all of the above</button>
-      </div>
-
-      <div id="question-5" class="question-container hide">
-        <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
-        <button class="btn" onclick="submitAnswer(5, 'JavaScript')">JavaScript</button>
-        <button class="btn" onclick="submitAnswer(5, 'terminal/bash')">terminal/bash</button>
-        <button class="btn" onclick="submitAnswer(5, 'for loops')">for loops</button>
-        <button class="btn" onclick="submitAnswer(5, 'console.log')">console.log</button>
-      </div>
-
-      <div id="results" class="hide">
-        <h1>All done!</h1>
-        <p>Your final score is <span id="score"></span>.</p>
-        <div>
-          <p>Enter Initals:</p>
-          <input id="initals" type="text" />
-          <button onclick="saveScore()">Submit</button>
+      <div id="start">
+        <div class="section">
+          <h1>Coding Quiz Challenge</h1>
+          <p>
+            Try to answer the following code-related questions within the time limit.
+            <br/>
+            Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+          </p>
+          <button class="btn" onclick="startQuiz()">Start Quiz</button>
         </div>
       </div>
 
-      <div id="correct" class="hide">
-        <h3>Correct!</h3>
+      <div id="question-1" class="question-container hide">
+        <div class="section">
+          <h1>Commonly used data types DO NOT include: </h1>
+          <div class="options">
+            <button class="btn" onclick="submitAnswer(1, 'strings')">strings</button>
+            <button class="btn" onclick="submitAnswer(1, 'booleans')">booleans</button>
+            <button class="btn" onclick="submitAnswer(1, 'alerts')">alerts</button>
+            <button class="btn" onclick="submitAnswer(1, 'numbers')">numbers </button>
+          </div>
+        </div>
       </div>
 
-      <div id="wrong" class="hide">
-        <h3>Wrong!</h3>
+      <div id="question-2" class="question-container hide">
+        <div class="section">
+          <h1>The condition in an if/else statement is encolsed with</h1>
+          <div class="options">
+            <button class="btn" onclick="submitAnswer(2, 'quotes')">quotes</button>
+            <button class="btn" onclick="submitAnswer(2, 'curly brackets')">curly brackets</button>
+            <button class="btn" onclick="submitAnswer(2, 'parenthesis')">parenthesis</button>
+            <button class="btn" onclick="submitAnswer(2, 'square brackets')">square brackets</button>
+          </div>
+          
+        </div>
+      </div>
+
+      <div id="question-3" class="question-container hide">
+        <div class="section">
+          <h1>String values must be enclosed within _______ when they are being assigned to variables.</h1>
+          <div class="options">
+            <button class="btn" onclick="submitAnswer(3, 'commmas')">commmas</button>
+            <button class="btn" onclick="submitAnswer(3, 'curly brackets')">curly brackets</button>
+            <button class="btn" onclick="submitAnswer(3, 'quotes')">quotes</button>
+            <button class="btn" onclick="submitAnswer(3, 'parenthesis')">parenthesis</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="question-4" class="question-container hide">
+        <div class="section">
+          <h1>Array in JavaScript can be used store _______.</h1>
+          <div class="options">
+            <button class="btn" onclick="submitAnswer(4, 'numbers and strings')">numbers and strings</button>
+            <button class="btn" onclick="submitAnswer(4, 'other arrays')">other arrays</button>
+            <button class="btn" onclick="submitAnswer(4, 'booleans')">booleans</button>
+            <button class="btn" onclick="submitAnswer(4, 'all of the above')">all of the above</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="question-5" class="question-container hide">
+        <div class="section">
+          <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
+          <div class="options">
+            <button class="btn" onclick="submitAnswer(5, 'JavaScript')">JavaScript</button>
+            <button class="btn" onclick="submitAnswer(5, 'terminal/bash')">terminal/bash</button>
+            <button class="btn" onclick="submitAnswer(5, 'for loops')">for loops</button>
+            <button class="btn" onclick="submitAnswer(5, 'console.log')">console.log</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="results" class="hide">
+        <div class="section results-section">
+          <h1>All done!</h1>
+          <p>Your final score is <span id="score"></span>.</p>
+          <div class="enter-initals">
+            Enter Initals:
+            <input id="initals" type="text" />
+            <button class="btn" onclick="saveScore()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="correct" class="response hide">
+        Correct!
+      </div>
+
+      <div id="wrong" class="response hide">
+        Wrong!
       </div>
 
       <div id="highscores" class="hide">
-        <h1>High scores</h1>
-        <div id="highscores-list"></div>
-        <button onclick="resumeQuiz()">Go Back</button>
-        <button onclick="clearHighscores()">Clear High scores</button>
+        <div class="section">
+          <h1>High scores</h1>
+          <div id="highscores-list"></div>
+          <div class="score-btns">
+            <button class="btn" onclick="resumeQuiz()">Go Back</button>
+            <button class="btn" onclick="clearHighscores()">Clear High scores</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
