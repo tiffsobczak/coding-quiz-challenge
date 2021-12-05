@@ -51,6 +51,7 @@ function hideByElementId(id) {
 
 // Timer that counts down from 75
 function countdown() {
+  timeLeft = 75;
   showByElementId('timer');
   const secondsLeftElement = document.getElementById('seconds-left');
 
@@ -82,6 +83,7 @@ function finish() {
 }
 
 function saveScore() {
+  hideByElementId('timer');
   const initalsElement = document.getElementById('initals');
   const initals = initalsElement.value;
   const newScore = initals + ' ' + timeLeft;
@@ -98,4 +100,45 @@ function saveScore() {
   const newScoresString = JSON.stringify(scores);
 
   localStorage.setItem('scores', newScoresString);
+
+  showHighscores();
+}
+
+function showHighscores() {
+  if (currentQuestionNum) {
+    hideByElementId('question-' + currentQuestionNum);
+  }
+  hideByElementId('results');
+  hideByElementId('start');
+  hideByElementId('correct');
+  hideByElementId('wrong');
+  showByElementId('highscores');
+
+  let scoresString = localStorage.getItem('scores');
+  let scores = [];
+
+  if (scoresString) {
+    scores = JSON.parse(scoresString);
+  }
+
+  const listElement = document.getElementById('highscores-list');
+  listElement.innerHTML = '';
+
+  for (const score of scores) {
+    listElement.innerHTML = listElement.innerHTML + '<div>' + score + '</div>';
+  }
+}
+
+function clearHighscores() {
+  localStorage.removeItem('scores');
+  showHighscores();
+}
+
+function resumeQuiz() {
+  if (currentQuestionNum && !isFinished) {
+    showByElementId('question-' + currentQuestionNum);
+  } else {
+    showByElementId('start');
+  }
+  hideByElementId('highscores');
 }

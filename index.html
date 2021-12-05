@@ -10,8 +10,8 @@
   </head>
   <body>
     <header>
-      <div class="highscores">
-        <h3 class="score-view"> View High Scores</h3>
+      <div class="navigation">
+        <button onclick="showHighscores()">View High Scores</button>
       </div>
       <div id="timer" class="hide">
         Time: <span id="seconds-left"></span> 
@@ -79,6 +79,13 @@
 
       <div id="wrong" class="hide">
         <h3>Wrong!</h3>
+      </div>
+
+      <div id="highscores" class="hide">
+        <h1>High scores</h1>
+        <div id="highscores-list"></div>
+        <button onclick="resumeQuiz()">Go Back</button>
+        <button onclick="clearHighscores()">Clear High scores</button>
       </div>
     </div>
   </body>
