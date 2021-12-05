@@ -80,3 +80,22 @@ function finish() {
   const scoreElement = document.getElementById('score');
   scoreElement.innerText = timeLeft;
 }
+
+function saveScore() {
+  const initalsElement = document.getElementById('initals');
+  const initals = initalsElement.value;
+  const newScore = initals + ' ' + timeLeft;
+
+  let scoresString = localStorage.getItem('scores');
+  let scores = [];
+
+  if (scoresString) {
+    scores = JSON.parse(scoresString);
+  }
+
+  scores.push(newScore);
+
+  const newScoresString = JSON.stringify(scores);
+
+  localStorage.setItem('scores', newScoresString);
+}
