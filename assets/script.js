@@ -1,12 +1,10 @@
-var timerEl=document.getElementbyID('countdown');
+var currentQuestionNum;
 
 function startQuiz() {
-  // countdown();
-  const startSection = document.getElementById('start');
-  startSection.classList.add('hide');
-
-  const firstQuestionSection = document.getElementById('question-1');
-  firstQuestionSection.classList.remove('hide');
+  countdown();
+  showByElementId('question-1');
+  hideByElementId('start');
+  currentQuestionNum = 1;
 }
 
 function submitAnswer(questionNum, selectedAnswer) {
@@ -21,34 +19,51 @@ function submitAnswer(questionNum, selectedAnswer) {
     console.log('wrong');
   }
 
-  showNextQuestion(questionNum);
+  if (questionNum > 4) {
+    showByElementId('results');
+    hideByElementId('question-' + questionNum);
+  } else {
+    showNextQuestion(questionNum);
+  }
 }
 
 function showNextQuestion(currentQuestionNum) {
   const nextQuestionNum = currentQuestionNum + 1;
+  currentQuestionNum = nextQuestionNum;
 
-  const currentQuestionSection = document.getElementById('question-' + currentQuestionNum);
-  const nextQuestionSection = document.getElementById('question-' + nextQuestionNum);
+  showByElementId('question-' + nextQuestionNum);
+  hideByElementId('question-' + currentQuestionNum);
+}
 
-  currentQuestionSection.classList.add('hide');
-  nextQuestionSection.classList.remove('hide');
+function showByElementId(id) {
+  const element = document.getElementById(id);
+  element.classList.remove('hide');
+}
+
+function hideByElementId(id) {
+  const element = document.getElementById(id);
+  element.classList.add('hide');
 }
 
 // Timer that counts down from 75
 function countdown() {
-  var timeLeft = 75;
+  showByElementId('timer');
+  const secondsLeftElement = document.getElementById('seconds-left');
 
-  // As long as the `timeLeft` is greater than 1
-  if (timeLeft > 1) {
-    // Set the `textContent` of `timerEl` to show the remaining seconds
-    timerEl.textContent = 'time: ' + timeLeft;
+  var timeLeft = 5;
+
+  setInterval(function tick() {
     // Decrement `timeLeft` by 1
     timeLeft--;
-  } else {
-    // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-    timerEl.textContent = '';
-    // Call the `displayMessage()` function
-    displayMessage();
-  }
+
+    // Set the `textContent` of `timerEl` to show the remaining seconds
+    secondsLeftElement.innerText = timeLeft;
+
+    // If timeLeft is less than 1
+    if (timeLeft < 1) {
+      hideByElementId('question-' + currentQuestionNum);
+      showByElementId('results');
+    }
+  }, 1000);
 }
 

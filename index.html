@@ -9,23 +9,15 @@
     
   </head>
   <body>
-      <header>
-          <div class="highscores">
-              <h3 class="score-view"> View High Scores</h3>
-          </div>
-          <div class=timer></div>
-      </header>
+    <header>
+      <div class="highscores">
+        <h3 class="score-view"> View High Scores</h3>
+      </div>
+      <div id="timer" class="hide">
+        Time: <span id="seconds-left"></span> 
+      </div>
+    </header>
     <div class="center-container">
-      <!-- <div class="question-container hide">
-        <div class="quetion">Question</div>
-        <div class="answer-buttons button-column">
-          <button class="btn">Answer1</button>
-          <button class="btn">Answer 2</button>
-          <button class="btn">Answer 3</button>
-          <button class="btn">Answer 4</button>
-        </div>
-      </div> -->
-
       <!--Start Button-->
       <div id="start" class="start-btn btn">
         <button onclick="startQuiz()">Start Quiz</button>
@@ -70,11 +62,11 @@
         <button class="btn" onclick="submitAnswer(5, 'for loops')">for loops</button>
         <button class="btn" onclick="submitAnswer(5, 'console.log')">console.log</button>
       </div>
+
+      <div id="results" class="hide">
+        <h1>Results</h1>
+      </div>
     </div>
-    </div>
-    <footer>
-      <div class="result"></div>
-    </footer>
   </body>
   <script src="./assets/script.js"></script>
 </html>
