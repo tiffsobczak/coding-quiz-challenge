@@ -11,6 +11,7 @@ function startQuiz() {
 }
 
 function submitAnswer(questionNum, selectedAnswer) {
+    //Correct answers
   const answers = ['alerts', 'parenthesis', 'quotes', 'all of the above', 'console.log']
   const correctAnswer = answers[questionNum - 1]
 
@@ -22,7 +23,7 @@ function submitAnswer(questionNum, selectedAnswer) {
     showByElementId('wrong');
     hideByElementId('correct');
   }
-
+//When question is 5, finish after submit
   if (questionNum > 4) {
     finish();
   } else {
@@ -72,7 +73,7 @@ function countdown() {
     }
   }, 1000);
 }
-
+//when all questions or answered or time reaches zero, finsh quiz
 function finish() {
   showByElementId('results');
   hideByElementId('question-' + currentQuestionNum);
@@ -81,7 +82,7 @@ function finish() {
   const scoreElement = document.getElementById('score');
   scoreElement.innerText = timeLeft;
 }
-
+//saving score 
 function saveScore() {
   hideByElementId('timer');
   const initalsElement = document.getElementById('initals');
@@ -103,7 +104,7 @@ function saveScore() {
 
   showHighscores();
 }
-
+//Viewing high score
 function showHighscores() {
   if (currentQuestionNum) {
     hideByElementId('question-' + currentQuestionNum);
@@ -128,12 +129,12 @@ function showHighscores() {
     listElement.innerHTML = listElement.innerHTML + '<div class="record">' + score + '</div>';
   }
 }
-
+//reset scores
 function clearHighscores() {
   localStorage.removeItem('scores');
   showHighscores();
 }
-
+//go back from high scores screen
 function resumeQuiz() {
   if (currentQuestionNum && !isFinished) {
     showByElementId('question-' + currentQuestionNum);
